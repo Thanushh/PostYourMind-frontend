@@ -21,9 +21,12 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 
     const isFriend = friends.find((friend) => friend._id === friendId); //add and remove friend
 
+    const base_url = "https://postyourmind-backend.cyclic.app"
+// "http://localhost:3001"
+
     const patchFriend = async () => {
         const response = await fetch(
-            `http://localhost:3001/users/${_id}/${friendId}`,
+            `${base_url}/users/${_id}/${friendId}`,
             {
                 method: "PATCH",
                 headers: {
