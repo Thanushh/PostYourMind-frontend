@@ -7,6 +7,9 @@ import FriendListWidget from "scenes/widgets/FriendListWidget"
 import PostsWidget from "scenes/widgets/PostsWidget"
 import UserWidget from "scenes/widgets/UserWidget"
 
+const base_url = "https://postyourmind-backend.cyclic.app"
+// "http://localhost:3001/auth/login"
+
 const ProfilePage = () => {
   const [user, setUser] = useState(null)
   const { userId } = useParams()
@@ -14,7 +17,7 @@ const ProfilePage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)")
 
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
+    const response = await fetch(`${base_url}/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

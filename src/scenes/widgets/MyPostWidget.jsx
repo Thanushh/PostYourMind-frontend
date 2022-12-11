@@ -37,6 +37,9 @@ const MyPostWidget = ({ picturePath }) => {
     const mediumMain = palette.neutral.mediumMain;
     const medium = palette.neutral.medium;
 
+    const base_url = "https://postyourmind-backend.cyclic.app"
+// "http://localhost:3001"
+
     const handlePost = async () => {
         const formData = new FormData();
         formData.append("userId", _id);
@@ -46,7 +49,7 @@ const MyPostWidget = ({ picturePath }) => {
             formData.append("picturePath", image.name);
         }
 
-        const response = await fetch(`http://localhost:3001/posts`, {
+        const response = await fetch(`${base_url}/posts`, {
             method: "POST",
             headers: { Authorization: `Bearer ${token}` },
             body: formData,

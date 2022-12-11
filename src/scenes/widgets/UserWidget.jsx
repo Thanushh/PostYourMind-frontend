@@ -12,6 +12,9 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const base_url = "https://postyourmind-backend.cyclic.app"
+// "http://localhost:3001"
+
 const UserWidget = ({ userId, picturePath }) => {
     const [user, setUser] = useState(null);
     const { palette } = useTheme();
@@ -22,7 +25,7 @@ const UserWidget = ({ userId, picturePath }) => {
     const main = palette.neutral.main;
 
     const getUser = async () => {
-        const response = await fetch(`http://localhost:3001/users/${userId}`, {
+        const response = await fetch(`${base_url}/users/${userId}`, {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` }, //caz jwt token takes everything after the Bearer in auth
         });

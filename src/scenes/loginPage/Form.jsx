@@ -48,6 +48,9 @@ const initialValuesLogin = {
     password: "",
 };
 
+const base_url = "https://postyourmind-backend.cyclic.app"
+// "http://localhost:3001/auth/login"
+
 const Form = () => {
     const [pageType, setPageType] = useState("login");
     const { palette } = useTheme();
@@ -66,7 +69,7 @@ const Form = () => {
         formData.append("picturePath", values.picture.name); //refer file name from assests..(p1.jpeg etc)
 
         const savedUserResponse = await fetch(
-            "http://localhost:3001/auth/register",
+            `${base_url}/auth/register`,
             {
                 method: "POST",
                 body: formData,
@@ -82,7 +85,7 @@ const Form = () => {
 
     const login = async (values, onSubmitProps) => {
         const loggedInResponse = await fetch(
-            "http://localhost:3001/auth/login",
+            `${base_url}/auth/login`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
